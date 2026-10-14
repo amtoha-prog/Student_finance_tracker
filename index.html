@@ -85,6 +85,52 @@
         <datalist id ="category-options"></datalist>
       </section>
 
+      <!--Records-->
+
+      <section id="records" aria-labelledby="records-title">
+        <h2 id="records-title" tabindex="-1">Transactions</h2>
+        <div class="card toolbar">
+          <div class="field grow">
+            <label for="search">Search with a regex pattern</label>
+
+            <input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="e.g. coffee" aria-describedby="search-hint search-error">
+            <p id="search-hint" class="hint">Press / to jump here. Searches description, category, date and amount.</p>
+          </div>
+          <div class="check">
+            <input id="ignore-case" type="checkbox" checked>
+            <label for="ignore-case">Ignore case</label>
+          </div>
+          <div class="field">
+            <label for="sort">Sort by</label>
+            <select id="sort">
+              <option value="date-new">Date(newest)</option>
+              <option value="date-old">Date(oldest)</option>
+              <option value="name-az">Description (A to Z)</option>
+              <option value="name-za">Description (Z to A)</option>
+              <option value="amount-high">Amount(highest)</option>
+              <option value="amount-low">Amount(lowest)</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="result-count" class="muted" roles="status"></p>
+        <p id ="edit-error" class="error" aria-live="assertive"></p>
+        <table class="records">
+          <caption class="visually-hidden">Your transactions. Each row has edit and delete buttons,</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Category</th>
+              <th scope="col" class="num">Amount</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="records-body"></tbody>
+        </table>
+        <p id="empty-state" class="empty" hidden></p>
+      </section>
+
 
   </body>
 
