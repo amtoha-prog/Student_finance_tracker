@@ -54,6 +54,36 @@
         </div>
       </section>
 
+      <!--Adding form-->
+      <section id="add" aria-labelledby="add-title">
+        <h2 id="add-title">Add a transaction</h2>
+        <form id="record-form" class="card" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="description">Description</label>
+              <input id="description" name="description" type="text" autocomplete="off" aria-describedby="description-hint description-error">
+              <p id="description-hint" class="hint">For example: lunch</p>
+              <p id="description-error" class="error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="amount">Amount (RWF)</label>
+              <input id="amount" name="amount" type="text" inputmode="decimal" autocomplete="off" aria-describedby="amount-hint amount-error">
+              <p id="amount-error" class="error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" name="date" type="text" placeholder="YYYY-MM-DD" autocomplete="off" aria-describedby="date-hint date-error">
+
+              <p id="date-hint" class="hint">Format:YYYY-MM-DD</p>
+              <p id="date-error" class="error" aria-live="polite"></p>
+            </div>
+          </div>
+          <button type="submit" class="btn">Add transaction</button>
+        </form>
+        <datalist id ="category-options"></datalist>
+      </section>
 
 
   </body>
