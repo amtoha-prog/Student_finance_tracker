@@ -58,3 +58,16 @@ a{color:#176b50;}
   border-radius: 12px;
   box-shadow: 0 3px 12px rgba(24, 65, 47, 0.08);
 }
+
+.btn{
+  padding:10px 18px;
+  font-family:inherit;
+  font-size: 16px;
+  font-weight: bold;
+  color:#ffffff;
+  background-color:#176b50;
+  border: 2px solid #176b50;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
