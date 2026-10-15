@@ -162,7 +162,7 @@
                 <div class="field">
                   <label for="categories">Categories</label>
                   <input id="categories" type="text" autocomplete="off">
-                </dvi>
+                </div>
                 <p id="settings-error" class="error" aira-live="polite"></p>
                 <button type="submit" class="btn">Save settings</button>
               </form>
@@ -172,7 +172,16 @@
                 <button type="button" id="export-btn" class="btn light">Export JSON</button>
                 <div class="field top-space">
                   <label for="import-file">Import a JSON file</label>
-                  
+                  <input id="import-file" type="file" accept=".json,application/json">
+                </div>
+              </div>
+              <p id="data-msg" class="muted" role="status"></p>
+            </div>
+          </div>
+        </section>    
+               
+
+
 
 
 
