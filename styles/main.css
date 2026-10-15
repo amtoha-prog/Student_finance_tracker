@@ -113,3 +113,17 @@ a{color:#176b50;}
   animation: grow 05.s;
 }
 @keyframes grow{from{transform: scaleY(0);}to{transform: scaleY(1);}}
+
+/* --Forms-- */
+.form-row, .toolbar, .split{ display: flex; flex-direction: column;}
+
+.field{ display: flex; flex-direction: column; margin-bottom: 12px;}
+label{font-weight: bold;}
+
+input[type="text"], input[type="search"], select{
+  padding:10px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid #7d8f86;
+  border-radius: 8px;
+}
