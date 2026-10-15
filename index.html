@@ -136,7 +136,7 @@
         <h2 id="settings-title">Settings</h2>
         <div class="split">
           <form id="settings-title">Settings</h2>
-            <dive class="split">
+            <div class="split">
               <form id="settings-form" class="card" nonvalidate>
                 <h3>Currency and budget</h3>
                 <div class="field">
@@ -146,6 +146,26 @@
                     <option value="USD">USD - US dollar</option>
                     <option value="EUR">EUR - Euro</option>
                   </select>
+                </div>
+                <div class="field">
+                  <label for="rate-usd">RWF for 1 USD</label>
+                  <input id="rate-usd" type="text" inputmode="decimal">
+                </div>
+                <div class="field">
+                  <label for="rate-eur">RWF for 1 EUR</label>
+                  <input id="rate-eur" type="text" inputmode="decimal">
+                </div>
+                <div class="field">
+                  <label="cap">Budget cap in RWF</label>
+                  <input id="cap" type="text" inputmode="decimal">
+                </div>
+                <div class="field">
+                  <label for="categories">Categories</label>
+                  <input id="categories" type="text" autocomplete="off">
+                </dvi>
+                <p id="settings-error" class="error" aira-live="polite"></p>
+                <button type="submit" class="btn">Save settings</button>
+              </form>    
 
 
 
