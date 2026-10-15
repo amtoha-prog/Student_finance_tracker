@@ -134,3 +134,16 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
 .check{ margin-bottom: 12px;}
 .top-space{ margin-top: 16px;}
 
+/* --Transactions: cards on phones-- */
+.records{ width: 100%; border-collapse: collapse;}
+.records thead{display: none;}
+
+.records tr{
+  display: block;
+  margin-bottom: 12px;
+  padding: 12px;
+  background-color:#ffffff;
+  border: 1px solid #d5e2da;
+  border-radius: 10px;
+}
+
