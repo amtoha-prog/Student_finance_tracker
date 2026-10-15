@@ -43,3 +43,8 @@ a{color:#176b50;}
 .logo{font-size: 20px; font-weight: bold;}
 
 .logo-dot{display: inline-block; width: 14px; height: 14px; margin-right: 8px; border-radius: 50%; background-color: #63b68a;}
+
+.nav-list{display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 12px; color:#176b50; font-weight: bold; text-decoration: none; border-radius: 6px;}
+.nav-list a:hover {background-color:#eaf5ef;}
+
+.site-footer{margin-top: 40px; padding: 16px 0; color:#5d6c65; border-top: 1px solid #d5e2da;}
