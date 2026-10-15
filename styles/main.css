@@ -147,3 +147,8 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
   border-radius: 10px;
 }
 
+.records td::before {display: flex; justify-content: space-between; padding: 4px 0;}
+
+.records td.actions {justify-content: flex-end; gap: 8px;}
+
+.empty{padding: 24px; text-align: senter; border: 2px dashed #d5e2da;}
