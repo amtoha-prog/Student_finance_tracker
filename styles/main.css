@@ -98,3 +98,18 @@ a{color:#176b50;}
 .stats li{display: flex; flex-direction: column; width: calc(50% - 8px);}
 .stats strong{ font-size: 20px;}
 
+.chart{ display: flex; align-items: flex-end; gap: 8px; height: 170px; padding: 0; list-style: none;}
+.bar-item{ display: flex; flex-direction: column; align-items: center; flex: 1; width: 100%;}
+.bar-track{display: flex; align-items: flex-end; justify-content: center; flex: 1; width: 100%;}
+.bar-label{font-size: 13px; color:#5d6c65;}
+
+.bar{
+  width: 100%;
+  max-width: 48px;
+  min-height: 3px;
+  background-color:#176b50;
+  border-radius: 6px 6px 0 0;
+  transform-origin: bottom;
+  animation: grow 05.s;
+}
+@keyframes grow{from{transform: scaleY(0);}to{transform: scaleY(1);}}
