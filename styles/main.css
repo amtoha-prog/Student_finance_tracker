@@ -152,3 +152,17 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
 .records td.actions {justify-content: flex-end; gap: 8px;}
 
 .empty{padding: 24px; text-align: senter; border: 2px dashed #d5e2da;}
+
+/* --Message box-- */
+.toast{
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  padding: 12px 20px;
+  color: #ffffff;
+  background-color: #20312b;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.toast.show{opacity: 1;}
