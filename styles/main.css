@@ -71,3 +71,9 @@ a{color:#176b50;}
   cursor: pointer;
   transition: background-color 0.2s;
 }
+.btn:hover{background-color:#104d3b}
+
+.btn.light{color:#176b50; background-color:#ffffff; border-color:#a62929;}
+.btn.red:hover{background-color: #fcecec;}
+
+.btn.small{padding: 4px 12px; font-size: 14px;}
