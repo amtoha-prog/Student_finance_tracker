@@ -127,3 +127,10 @@ input[type="text"], input[type="search"], select{
   border: 1px solid #7d8f86;
   border-radius: 8px;
 }
+
+input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;}
+
+.hint{margin: 4px 0; font-size: 14px; font-weight: bold; color: #a62929;}
+.check{ margin-bottom: 12px;}
+.top-space{ margin-top: 16px;}
+
