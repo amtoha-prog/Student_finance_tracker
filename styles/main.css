@@ -92,3 +92,9 @@ a{color:#176b50;}
 
 .cap-msg{ font-weight: bold;}
 .cap-msg.over{ color: #a62929}
+
+
+.stats{display: flex; flex-wrap: wrap; gap: 0 16px; padding: 0; list-style: none;}
+.stats li{display: flex; flex-direction: column; width: calc(50% - 8px);}
+.stats strong{ font-size: 20px;}
+
