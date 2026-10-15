@@ -48,3 +48,13 @@ a{color:#176b50;}
 .nav-list a:hover {background-color:#eaf5ef;}
 
 .site-footer{margin-top: 40px; padding: 16px 0; color:#5d6c65; border-top: 1px solid #d5e2da;}
+
+/* --Cards and buttons-- */
+.card{
+  margin-bottom: 16px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #d5e2da;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(24, 65, 47, 0.08);
+}
