@@ -34,3 +34,12 @@ a{color:#176b50;}
   background-color: #20312b;
 }
 .skip-link:focus {top: 0;}
+
+/* -- Header and footer -- */
+.site-header{background-color:#ffffff; border-bottom: 1px solid #d5e2da; }
+
+.header-inner{display: flex; flex-direction:column;}
+
+.logo{font-size: 20px; font-weight: bold;}
+
+.logo-dot{display: inline-block; width: 14px; height: 14px; margin-right: 8px; border-radius: 50%; background-color: #63b68a;}
