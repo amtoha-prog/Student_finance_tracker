@@ -15,3 +15,36 @@ const RULES ={
 function collapseSpaces(text) {
   return text.replace(/\s{2,}/g, '');
 }
+
+function collapseSpaces(text) {
+  return text.replace(/\s{2,}/g, ' ');
+}
+
+function validateDescription(value) {
+  if (value === '') return 'Enter a description.';
+  if (!RULES.description.test(value)) return 'Remove the spaces at the start or end.';
+  const repeated = value.match(RULES.duplicateWord);
+  if (repeated) return 'The word "' + repeated[1] + ' " is typed twice. Remove one.';
+  return '';
+}
+
+function validateAmount(value) {
+  if (value === '') return 'Enter an amount.';
+  if (!RULES.amount.test(value)) return 'Use numbers only, with up to 2 decimals (e.g. 1500 or 12.50).';
+  return '';
+}
+
+function validateDate(value) {
+  if (value === '') return 'Enter a date.';
+  if (!RULES.date.test(value)) return 'Use the format YYYY-MM-DD (e.g. 2026-10-14).';
+  const parts = value.split('-').map(Number);
+  const check = new Date(parts[0], parts[1] - 1, parts[2]);
+  if (check.getDate() !== parts[2]) return 'That date does not exist.';
+  return '';
+}
+
+function validateCategory(value) {
+  if (value === '') return 'Enter a category.';
+  if (!RULES.category.test(value)) return 'Use letters only, with single spaces or hyphens.';
+  return '';
+}
