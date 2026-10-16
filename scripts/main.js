@@ -7,3 +7,9 @@ let settings = {currency: 'RWF',
   cap: 1000000,
   categories:['Food', 'Books', 'Transport', 'Entertainment', 'Fees', 'Other'],
 };
+
+// Storage(localStorage)
+function saveData() {
+  localStorage.setItem('minttrack-records', JSON.stringify(records)); 
+  localStorage.setItem('minttrack-settings', JSON.stringify(settings));
+}
