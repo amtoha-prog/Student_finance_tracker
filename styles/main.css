@@ -160,6 +160,9 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
 .records td.actions{justify-content: flex-end; gap: 8px;}
 .records td.actions::before{content: none;}
 
+
+mark{ color: #20312b; background-color: #ffe28a;}
+
 .empty{padding: 24px; text-align: center; border: 2px dashed #d5e2da;}
 
 /* --Message box-- */
