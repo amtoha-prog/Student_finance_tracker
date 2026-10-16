@@ -43,3 +43,13 @@ function announce(message){
   $('#status').classList.add('show');
   setTimeout(() => $('#status').classList.remove('show'), 3000);
 }
+
+// Records table
+const SORTS = {
+  'date-new': (a, b) => b.date.localeCompare(a.date),
+  'date-old': (a, b) => a.date.localeCompare(b.date),
+  'name-az': (a, b) => a.description.localeCompare(b.description),
+  'name-za': (a, b) => b.description.localeCompare(a.description),
+  'amount-high': (a, b) => b.amount - a.amount,
+  'amount-low': (a, b) => a.amount - b.amount,
+};
