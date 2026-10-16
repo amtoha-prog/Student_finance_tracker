@@ -183,4 +183,15 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
   .stats li{width: calc(25% - 12px);}
 }
 
+@media(min-width: 1024px){
+  h1{font-size: 40px;}
+  .big{font-size: 32px}
+  .form-row .field{width: calc(25% - 12px);}
+
+  .records thead{display: table-header-group;}
+  .records th{padding: 10px 8px; text-align: left;}
+  .records tr{display: table-row; margin: 0; padding: 0; background: none; border: 0; border-radius: 0;}
+  .records td{display: table-cell; padding: 10px 8px; border-bottom: 1px solid #d5e2da;}
+  .records td::before{content: none;}
+}
 
