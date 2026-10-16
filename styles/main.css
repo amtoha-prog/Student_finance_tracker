@@ -49,7 +49,7 @@ a{color:#176b50;}
 .logo-dot{display: inline-block; width: 14px; height: 14px; margin-right: 8px; border-radius: 50%; background-color: #63b68a;}
 
 .nav-list{display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none;}
-.nav-list a{padding: 8px 12px; color: #176b50; font-weight: bold; text-decoration: none; border-radius: 6px;}
+.nav-list a{display: block; padding: 8px 12px; color: #176b50; font-weight: bold; text-decoration: none; border-radius: 6px;}
 .nav-list a:hover {background-color:#eaf5ef;}
 
 .site-footer{margin-top: 40px; padding: 16px 0; color:#5d6c65; border-top: 1px solid #d5e2da;}
@@ -107,8 +107,8 @@ a{color:#176b50;}
 .stats strong{ font-size: 20px;}
 
 .chart{ display: flex; align-items: flex-end; gap: 8px; height: 170px; padding: 0; list-style: none;}
-.bar-item{ display: flex; flex-direction: column; align-items: center; flex: 1; width: 100%;}
-.bar-track{display: flex; align-items: flex-end; justify-content: center; flex: 1; width: 100%;}
+.bar-item{ display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%;}
+.bar-track{display: flex; align-items: flex-end; justify-content: center; flex: 1; height: 100%;}
 .bar-label{font-size: 13px; color:#5d6c65;}
 
 .bar{
@@ -138,8 +138,9 @@ input[type="text"], input[type="search"], select{
 
 input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;}
 
-.hint{margin: 4px 0; font-size: 14px; font-weight: bold; color: #a62929;}
-.check{ margin-bottom: 12px;}
+.hint{margin: 4px 0; font-size: 14px; color: #5d6c65;}
+.error{margin: 4px 0; font-size: 14px; font-weight: bold; color: #a62929}
+.check{display: flex; align-items: center; gap: 8px; margin-bottom: 12px;}
 .top-space{ margin-top: 16px;}
 
 /* --Transactions: cards on phones-- */
