@@ -195,3 +195,6 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
   .records td::before{content: none;}
 }
 
+@media (prefers-reduced-motion: reduce){
+  *{animation: none !important; transition: none !important;}
+}
