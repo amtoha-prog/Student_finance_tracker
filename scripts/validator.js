@@ -48,3 +48,15 @@ function validateCategory(value) {
   if (!RULES.category.test(value)) return 'Use letters only, with single spaces or hyphens.';
   return '';
 }
+
+function validateRecord(data) {
+  const errors = {};
+  const checks = {
+    description: validateDescription(data.description),
+    amount: validateAmount(data.amount),
+    category: validateCategory(data.category),
+    date: validateDate(data.date),
+  }
+  return errors;
+}
+
