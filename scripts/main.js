@@ -118,3 +118,13 @@ function renderDashboard() {
     days.push({sum: sum, name: dayy.toLocaleDateString('en', {weekday: 'short'})});
   }
   const biggest = Math.max(1, ...days.map((d) => d.sum));
+
+  $('#stat-count').textContent = records.length;
+  $('#stat-total').textContent = money(total);
+  $('#stat-top').textContent = topCategory;
+  $('#stat-week').textContent = money(days.reduce((s, d) => s + d.sum, 0));
+  $('#chart').innerHTML = days.map((d) => `<li class="bar-item"> 
+    <span class="bar-track"><span class="bar" style="height:${(d.sum / biggest) * 100}%"></span></span>
+    <span class="bar-label">${d.name}</span><span class="visually-hidden">${money(d.sum)}</span></li>`).join('');
+
+}
