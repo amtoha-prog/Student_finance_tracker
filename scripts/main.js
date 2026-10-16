@@ -6,3 +6,8 @@ const today = () => {
   date.setMinutes(date.getMinutes() - date.getTimezone0ffset());
   return date.toISOString().slice(0, 10);
 };
+
+const defaultData = {
+  transactions:[],
+  settings: { currency: "USD", budget: 500, period: "month", alert: 80 }
+};
