@@ -60,3 +60,25 @@ function validateRecord(data) {
   return errors;
 }
 
+// Check imported JSON
+
+function validateImport(data) {
+  if (!Array.isArray(data)) return 'The file must contain a list (JSON array) of transactions.';
+
+  const usedIds =[];
+  for (let i = 0; i < data.length; i++) {
+    const r = data[i];
+    const where = 'Transaction ' + (i + 1);
+
+    if (!r || typeof r !== 'object') return where + ' is not an object.';
+    if (typeof r.id !== 'string' || r.id === '') return where + ' has no id.';
+    if (usedIds.includes(r.id)) return where + ' repeats the id "' + r.id + '".';
+    usedIds.push(r.id);
+
+    if (typeof r.description !== 'string' || !RULES.description.test(r.description)) return where + ' has a bad description.';
+    if (typeof r.amount !== 'number' || r.amount < 0) return where + ' has a bad amount.';
+    if (typeof r.category !== 'string' || !RULES.date.test(r.date)) return where + ' has a bad date.';
+    if (typeof r.createdAt !== 'string' || typeof r.updatedAt !== 'string') return where + ' is missing timestamps.';
+  }
+  return '';
+}
