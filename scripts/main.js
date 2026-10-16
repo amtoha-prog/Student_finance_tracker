@@ -143,3 +143,12 @@ function renderDashboard() {
         : `${money(remaining)} left in your budget.`;
     $('#cap-assertive').textContent = isOver ? `Over budget by ${money(-remaining)}.` : '';
 }
+
+// Redraws everything
+function renderAll() {
+  renderTable();
+  renderDashboard();
+  $('#category-options').innerHTML = settings.categories.map((c) => `<option value="${escapeHtml(c)}">`).join('');
+}
+
+// Start
