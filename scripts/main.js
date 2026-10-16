@@ -22,3 +22,9 @@ function loadSaved(key) {
   }
 }
 
+// Helpers
+function $(selector){
+  return document.querySelector(selector);
+}
+
+
