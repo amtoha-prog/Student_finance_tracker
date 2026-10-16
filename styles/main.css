@@ -76,7 +76,7 @@ a{color:#176b50;}
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.btn:hover{background-color:#104d3b}
+.btn:hover{background-color:#104d3b;}
 
 .btn.light{color:#176b50; background-color:#ffffff; border-color:#176b50;}
 .btn.light:hover{background-color:#eaf5ef;}
@@ -99,7 +99,7 @@ a{color:#176b50;}
 .meter-fill.over{background-color: #a62929;}
 
 .cap-msg{ font-weight: bold;}
-.cap-msg.over{ color: #a62929}
+.cap-msg.over{ color: #a62929;}
 
 
 .stats{display: flex; flex-wrap: wrap; gap: 0 16px; padding: 0; list-style: none;}
@@ -191,18 +191,20 @@ mark{ color: #20312b; background-color: #ffe28a;}
   .form-row, .toolbar, .split{flex-direction: row; gap: 16px;}
   .split > *{flex: 1;}
   .stats li{width: calc(25% - 12px);}
+  .grow{flex: 1;}
 }
 
 @media(min-width: 1024px){
   h1{font-size: 40px;}
-  .big{font-size: 32px}
+  .big{font-size: 32px;}
   .form-row .field{width: calc(25% - 12px);}
 
   .records thead{display: table-header-group;}
-  .records th{padding: 10px 8px; text-align: left;}
+  .records th{padding: 10px 8px; text-align: left; background-color: #eaf5ef;}
   .records tr{display: table-row; margin: 0; padding: 0; background: none; border: 0; border-radius: 0;}
   .records td{display: table-cell; padding: 10px 8px; border-bottom: 1px solid #d5e2da;}
   .records td::before{content: none;}
+  .records input{width: 100%; max-width: 14rem;}
 }
 
 @media (prefers-reduced-motion: reduce){
