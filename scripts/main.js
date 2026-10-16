@@ -86,4 +86,11 @@ function renderTable(){
   const list = records.filter((r) => !searchRegex || [r.description, r.category, r.date,
     String(r.amount)].some((text) => searchRegex.test(text)));
     list.sort(SORTS[$('#sort').value]);
+  
+  $('#records-body').innerHTML = list.map((r) => (r.id === editingId ? editRow(r) : normalRow(r))).join("");
+  $('#result-count').textContent = `Showing ${list.length} of ${records.length} transactions`;
+  $('#empty-state').hidden = list.length > 0;
+  $('#empty-state').textContent = records.length === 0 
+  ? 'No transactions yet. Add your first one with the form above.'
+  : 'Nothing matches this search. Try another pattern.';
 }
