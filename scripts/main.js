@@ -81,3 +81,9 @@ const box = (field, label) =>
    <button class="btn small light" data-action="cancel">Cancel</button>
   </td></tr>`;
 }
+
+function renderTable(){
+  const list = records.filter((r) => !searchRegex || [r.description, r.category, r.date,
+    String(r.amount)].some((text) => searchRegex.test(text)));
+    list.sort(SORTS[$('#sort').value]);
+}
