@@ -1,26 +1,9 @@
-const $ = (selector) => document.querySelector(selector);
-const storageKey = "mintttrack-data";
-
-const today = () => {
-  const date = new Date();
-  date.setMinutes(date.getMinutes() - date.getTimezone0ffset());
-  return date.toISOString().slice(0, 10);
+// DATA
+let records= [];
+let editingId = null;
+let SearchRegex = null;
+let settings = {currency: 'RWF',
+  rates: {RWF: 1, USD: 1300, EUR: 1400},
+  cap: 1000000,
+  categories:['Food', 'Books', 'Transport', 'Entertainment', 'Fees', 'Other'],
 };
-
-const defaultData = {
-  transactions:[],
-  settings: { currency: "USD", budget: 500, period: "month", alert: 80 }
-};
-
-let data = loadData();
-function loadData() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey));
-    if (saved && Array.isArray(saved.transactions) && saved.settings) {
-      return saved;
-    }
-  } catch {
-    showMessage("Saved data could not be loaded.");
-  }
-  return structuredClone(defaultData);
-}
