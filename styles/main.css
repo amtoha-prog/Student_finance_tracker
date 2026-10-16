@@ -176,6 +176,12 @@ input[aria-invalid="true"] {border: 2px solid #a62929; background-color:#fcecec;
 }
 .toast.show{opacity: 1;}
 
+@media (min-width: 360px){
+  h1{font-size: 32px;}
+  .container{padding: 0 20px;}
+}
+
+
 @media (min-width: 768px){
   .header-inner{flex-direction: row; justify-content: space-between; align-items: center;}
   .form-row, .toolbar, .split{flex-direction: row; gap: 16px;}
