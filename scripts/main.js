@@ -127,4 +127,19 @@ function renderDashboard() {
     <span class="bar-track"><span class="bar" style="height:${(d.sum / biggest) * 100}%"></span></span>
     <span class="bar-label">${d.name}</span><span class="visually-hidden">${money(d.sum)}</span></li>`).join('');
 
+    const remaining = settings.cap - total;
+    const isOver = settings.cap > 0 && remaining < 0;
+    $('#budget-text').textContent = settings.cap 
+      ? `${money(total)} spent of ${money(settings.cap)}` 
+      : `${money(total)} spent`;
+    $('#meter-fill').style.width = settings.cap 
+      ? Math.min(100, (total / settings.cap) * 100) + '%' 
+      : '0%';
+    $('#meter-fill').classList.toggle('over', isOver);
+    $('#cap-polite').textContent = !settings.cap 
+      ? 'No budget cap set. Add one in Settings.' 
+      : isOver 
+        ? ''
+        : `${money(remaining)} left in your budget.`;
+    $('#cap-assertive').textContent = isOver ? `Over budget by ${money(-remaining)}.` : '';
 }
