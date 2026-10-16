@@ -27,4 +27,9 @@ function $(selector){
   return document.querySelector(selector);
 }
 
+function money(amountRwf){
+  const options = {style:'currency', currency: settings.currency, maximumFractionDigits: 2 };
+  return new Intl.NumberFormat('en', options).format(amountRwf / settings.rates[settings.currency]);
+}
+
 
