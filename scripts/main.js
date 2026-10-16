@@ -152,3 +152,26 @@ function renderAll() {
 }
 
 // Start
+async function start() {
+  const savedSettings = loadSavec('minttrack-settings');
+  if (savedSettings) settings = {...settings, ...savedSettings };
+
+  const savedRecords = loadSaved('minttrack-records');
+  if (savedRecords && validateImport(savedRecords) === '') {
+    records = savedRecords;
+  } else {
+    try {
+      const response = await fetch('seed.json');
+      records = await response.json();
+    } catch (error) {
+      records =[];
+    }
+    saveData();
+  }
+
+  $('#date').value = dateToText(new Date());
+  fillSettings();
+  renderAll();
+}
+
+document.addEventListener('DOMContentLoaded', start);
