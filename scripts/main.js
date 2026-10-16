@@ -11,3 +11,16 @@ const defaultData = {
   transactions:[],
   settings: { currency: "USD", budget: 500, period: "month", alert: 80 }
 };
+
+let data = loadData();
+function loadData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (saved && Array.isArray(saved.transactions) && saved.settings) {
+      return saved;
+    }
+  } catch {
+    showMessage("Saved data could not be loaded.");
+  }
+  return structuredClone(defaultData);
+}
