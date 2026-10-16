@@ -104,4 +104,17 @@ function renderDashboard() {
     perCategory[r.category] = (perCategory[r.category] || 0) + r.amount;
   });
 
-}
+  let top ='None yet';
+  for(const categpry in perCategory){
+   if (top === 'None yet' || perCategory[category]>
+  perCategory[top]) top = category;
+  }
+
+  const days =[];
+  for (let i =6; i >= 0; i--){
+    const day = new Date();
+    day.setDate(day.getDate() - i);
+    const sum = records.filter((r) => r.date === dateToText(day)).reduce((s, r) => s + r.amount, 0);
+    days.push({sum: sum, name: dayy.toLocaleDateString('en', {weekday: 'short'})});
+  }
+  const biggest = Math.max(1, ...days.map((d) => d.sum));
