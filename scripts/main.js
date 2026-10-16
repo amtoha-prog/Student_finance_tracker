@@ -65,4 +65,19 @@ function normalRow(r) {
    <button class="btn small red" data-action="delete" aria-label="Delete ${name}">Delete</button>
   </td>
 </tr>`;
+
+}
+
+function editRow(r) {
+const box = (field, label) =>
+  `<input type="text" data-field="${field}" aria-label="${label}" value="${escapeHtml(r[field])}">`;
+  return `<tr data-id="${r.id}">
+  <td data-label="Date">${box('date', 'Date')}</td>
+  <td data-label="Description">${box('description', 'Description')}</td>
+  <td data-label="Category">${box('category', 'Category')}</td>
+  <td data-label="Amount (RWF)">${box('amount', 'Amount in RWF')}</td>
+  <td class="actions">
+   <button class="btn small" data-action="save">Save</button>
+   <button class="btn small light" data-action="cancel">Cancel</button>
+  </td></tr>`;
 }
