@@ -82,3 +82,26 @@ function validateImport(data) {
   }
   return '';
 }
+
+function escapeHtml(text) {
+  return String(text)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replaceAll(/"/g, '&quot;');
+}
+
+function highlight(text, regex) {
+  text = String(text);
+  if(!regex) return escapeHtml(text);
+
+
+  const findAll = new RegExp(regex.source, regex.flags + 'g');
+  let result = '';
+  let last = 0;
+  for (const match of text.matchAll(findAll)) {
+    result += escapeHtml(text.slice(last, match.index)) + '<mark>' + escapeHtml(match[0]) + '</mark>';
+    last = match.index + match[0].length;
+  }
+  return result + escapeHtml(text.slice(last));
+}
