@@ -13,3 +13,12 @@ function saveData() {
   localStorage.setItem('minttrack-records', JSON.stringify(records)); 
   localStorage.setItem('minttrack-settings', JSON.stringify(settings));
 }
+
+function loadSaved(key) {
+  try{
+    return JSON.parse(loacolStorage.getItem(key));
+  } catch (error) {
+    return null;
+  }
+}
+
