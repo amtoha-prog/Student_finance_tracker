@@ -94,3 +94,14 @@ function renderTable(){
   ? 'No transactions yet. Add your first one with the form above.'
   : 'Nothing matches this search. Try another pattern.';
 }
+
+// Dashboard
+function renderDashboard() {
+  let total = 0;
+  const perCategory = {}; 
+  records.forEach((r) => {
+    total += r.amount;
+    perCategory[r.category] = (perCategory[r.category] || 0) + r.amount;
+  });
+
+}
