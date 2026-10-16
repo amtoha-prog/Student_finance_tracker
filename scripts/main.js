@@ -53,3 +53,16 @@ const SORTS = {
   'amount-high': (a, b) => b.amount - a.amount,
   'amount-low': (a, b) => a.amount - b.amount,
 };
+
+function normalRow(r) {
+  const name = escapeHtml(r.description);
+  return `<tr data-id="${r.id}"> 
+  <td data-label="Date">${highlight(r.description, searchRegex)}</td>
+  <td data-label="Description>${highlight(r.description, searchRegex)}</td>
+  <td data-label="Amount" class="num">${money(r.amount)}</td>
+  <td class="actions">
+   <button class="btn small light" data-action="edit" aria-label="Edit ${name}">Edit</button>
+   <button class="btn small red" data-action="delete" aria-label="Delete ${name}">Delete</button>
+  </td>
+</tr>`;
+}
