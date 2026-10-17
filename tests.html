@@ -59,6 +59,12 @@
     check('Back-reference: finds "the the"', RULES.duplcateWord.test('Print the the report'), true);
     check('Back-reference: "the then" is fine',RULES.duplcateWord.test('the then') !== '', false);
     check('Description with "the the" is rejected', validateDescription('Print the the report') !== '', true);
+
+    //---- Whole form----
+    const goodForm = { description: 'Bus fare', amount: '500', category: 'Transport', date: '2026-10-14' };
+    const badForm = { description: 'Bus', amount: '0', category: 'Bus2', date: '2026/10/14'};
+    check('validateRecord: good form has 0 errors', Object.keys(validateRecord(badForm)).length, 0);
+    
    
 
   </script>
