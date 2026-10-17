@@ -23,9 +23,10 @@ FIELDS.forEach((field) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault(); 
   const data = readForm();
+  const errors = validateReacord(data);
   FIELDS.forEach((field) => showError(field, errors[field] || ''));
   if (Object.keys(errors).length > 0) {
-    form.querySelector('[aria-invalid="true"]').focus;
+    form.querySelector('[aria-invalid="true"]').focus();
     return;
   }
 
@@ -63,7 +64,8 @@ document.addEventListener('keydown', (event) => {
 $('#records-body').addEventListener('click', (event) => {
   const button = event.target.closest('button')
   if (!button) return;
-  const id = button.dataset.action;
+  const id = button.closest('tr').dataset.id;
+  const action = button.dataset.action;
   if (action === 'edit') { editingId = id; renderTable(); $('#records-body input').focus(); }
   if (action === 'cancel') cancelEdit();
   if (action === 'save') saveEdit(id);
@@ -93,6 +95,7 @@ function saveEdit(id) {
 
   const record = records.find((r) => r.id === id);
   Object.assign(record, data, {amount: Number(data.amount), updatedAt: new Date().toISOString() });
+  editingId = null;
   saveData();
   renderAll();
   announce('Transaction updated.');
@@ -103,6 +106,7 @@ function deleteRecord(id) {
   const record = records.find((r) => r.id === id);
   if (!confirm(`Delete "${record.description}"? This cannot be undone.`)) return;
   records = records.filter((r) => r.id !==id);
+  if (editingId === id) editingId = null;
   saveData();
   renderAll();
   announce('Transaction deleted.');
@@ -130,7 +134,7 @@ $('#settings-form').addEventListener('submit', (event) => {
   if (validateAmount(usd) || validateAmount(eur)) error = 'Exchange rates must be numbers above 0.';
   else if (cap !== '' && validateAmount(cap)) error = 'The budget cap must be a number above 0, or empty.';
   else if (categories.length === 0) error = 'Add at least one category.';
-  else if (categories.some((c) => validateCategory(c))) error = 'Categories can only use letters, space or hyphens.';
+  else if (categories.some((c) => validateCategory(c))) error = 'Categories can only use letters, spaces or hyphens.';
   $('#settings-error').textContent = error;
   if (error) return;
 
@@ -153,6 +157,7 @@ $('#export-btn').addEventListener('click', () => {
   link.href = URL.createObjectURL(file);
   link.download = 'minttrack-data.json';
   link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   $('#data-msg').textContent = `Exported ${records.length} transactions.` ;
 });
 
@@ -168,7 +173,7 @@ $('#import-file').addEventListener('change', async (event) => {
       records = data;
       saveData();
       renderAll();
-      $('#data-msg').textContent = `Import ${data.length} transactions.`;
+      $('#data-msg').textContent = `Imported ${data.length} transactions.`;
     }
   } catch (error) {
     $('#data-msg').textContent = 'Import stopped: this file is not valid JSON. Nothing was changed.';
