@@ -81,11 +81,13 @@
     check('Import: duplicate ids are rejected', validateImport([goodRecord, goodRecord]).includes('repeats the id'), true);  
     check('Import: a text amount is rejected', validateImport([{ ...goodRecord, amount: '2000'}]).includes('bad amount'), true);
 
-
-    
-
-   
-
+    //---- Show the results on the page ----
+    const passed = results.filter((r) => r.pass).length;
+    document.getElementById('summary').textContent = passed + ' of ' + results.length + ' tests passed';]
+    document.getElementById('results').innerHTML = results.map((r) => {
+      if (r.pass) return '<li class="pass">Pass: ' + escapeHtml(r.name) + '</li>';
+      return '<li class="fail">Fail: ' + escapeHtml(r.name) + ' (expected ' + escapeHtml(JSON.stringify(r.expected)) + ', got ' + escapeHtml(JSON.stringify(r.actual)) + ')</li>';
+    }).join('');
   </script>
 </body>
 </html>
