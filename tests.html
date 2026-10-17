@@ -50,6 +50,12 @@
     check('Date: 14/10/2026 is rejected', RULES.date.test('14/10/2026'), false);
     check('Date: 2026-02-30 does not exist', validateDate('2026-02-30'), 'That date does not exist.');
 
+    //---- Rule 5: category ----
+    check('Category: "Mobile Data" is OK', validateCategory('Mobile Data'), '');
+    check('Category: "Top-up" is OK', validateCategory('Top-up'), '');
+    check('Category: "Food2" is rejected', RULES.category.test('Food2'), false);
+   
+
   </script>
 </body>
 </html>
