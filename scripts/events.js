@@ -40,3 +40,21 @@ form.addEventListener('submit', (event) => {
   renderAll();
   announce('Transaction added.');
 });
+
+// Search and Sort
+function runSearch () {
+  const result = compileRegex($('#search').value, $('#ignore-case').checked);
+  searchRegex = result.regex;
+  $('#search-error').textContent = result.error;
+  renderTable();
+}
+$('#search').addEventListener('input', runSearch);
+$('#ignore-case').addEventListener('change', runSearch);
+$('#sort').addEventListener('change', renderTable);
+
+document.addEventListener('keydown', (event) => {
+  if(event.key === '/' && !event.target.matches('input, select')) {
+    event.preventDefault();
+    $('#search').focus();
+  }
+});
