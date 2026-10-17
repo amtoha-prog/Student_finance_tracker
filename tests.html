@@ -44,6 +44,11 @@
     check('Lookahead: 0.00 is rejected', RULES.notZero.test('0.00'), false);
     check('Lookahead: 0.50 is OK', RULES.notZero.test('0.50'), true);
 
+    //---- Rule 4: date ----
+    check('Date: 2026-10-14 is OK', validateDate('2026-10-14'), '');
+    check('Date: month 13 is rejected', RULES.date.test('2026-13-01'), false);
+    check('Date: 14/10/2026 is rejected', RULES.date.test('14/10/2026'), false);
+    check('Date: 2026-02-30 does not exist', validateDate('2026-02-30'), 'That date does not exist.');
 
   </script>
 </body>
