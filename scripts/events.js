@@ -98,3 +98,14 @@ function saveEdit(id) {
   announce('Transaction updated.');
   $('#records-title').focus();
 }
+
+function deleteRecord(id) {
+  const record = records.find((r) => r.id === id);
+  if (!confirm(`Delete "${record.description}"? This cannot be undone.`)) return;
+  records = records.filter((r) => r.id !==id);
+  saveData();
+  renderAll();
+  announce('Transaction deleted.');
+  $('#records-title').focus();
+}
+
