@@ -76,3 +76,25 @@ $('#records-body').addEventListener('keydown', (event) => {
   if (event.key === 'Escape')cancelEdit();
 });
 
+function cancelEdit() {
+  editingId = null;
+  $('#edit-error').textContent= '';
+  renderTable();
+  $('#records-title').focus();
+}
+
+function saveEdit(id) {
+  const data = {};
+  document.querySelectorAll('#records-body input').forEach((input) => { data[input.dataset.field] = input.value; });
+  data.description = collapseSpaces(data.description);
+  const errors = validateRecord(data);
+  $('#edit-error').textContent = Object.values(errors).join(' ');
+  if(Object.keys(errors).length > 0) return;
+
+  const record = records.find((r) => r.id === id);
+  Object.assign(record, data, {amount: Number(data.amount), updatedAt: new Date().toISOString() });
+  saveData();
+  renderAll();
+  announce('Transaction updated.');
+  $('#records-title').focus();
+}
