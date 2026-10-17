@@ -18,6 +18,24 @@
     <ul id="results"></ul>
     <p><a href="index.html">Back to the app</a></p>
   </main>
+
+  <script src="scripts/validator.js"></script>
+  <script>
+    // ----- A tiny test helper -----
+    const results = [];
+
+    function chack(name, actual, expected) {
+      results.push({ name: name, pass: actual === expected, actual: actual, expected: expected
+      });
+    }
+
+    // ---- Rule 1: description ----
+    check('Description: normal text is OK', validateDescription('Lunch at cafeteria'), '');
+    check('Description: leading space is rejected', RULES.description.test(' Lunch'), false);
+    check('Description: trailing space is rejected', RULES.description.test('Lunch '), false);
+    check('Description: double spaces are collapsed', collapseSpaces('Lunch  at  cafe'), 'Lunch at cafe');
+    
+
   
 </body>
 </html>
