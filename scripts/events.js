@@ -109,3 +109,40 @@ function deleteRecord(id) {
   $('#records-title').focus();
 }
 
+// Settings
+function fillSettings() {
+  $('#currency').value = settings.currency;
+  $('#rate-usd').value = settings.rates.USD;
+  $('#rate-eur').value = settings.rates.EUR;
+  $('#cap').value = settings.cap || '';
+  $('#categories').value = settings.categories.join(', ');
+}
+
+$('#settings-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const usd = $('#rate-usd').value.trim();
+  const eur = $('#rate-eur').value.trim();
+  const cap = $('#cap').value.trim();
+  const categories = $('#categories').value.split(',').map((c) => c.trim()).filter((c) => c !== '');
+
+
+  let error = '';
+  if (validateAmount(usd) || validateAmount(eur)) error = 'Exchange rates must be numbers above 0.';
+  else if (cap !== '' && validateAmount(cap)) error = 'The budget cap must be a number above 0, or empty.';
+  else if (categories.length === 0) error = 'Add at least one category.';
+  else if (categories.some((c) => validateCategory(c))) error = 'Categories can only use letters, space or hyphens.';
+  $('#settings-error').textContent = error;
+  if (error) return;
+
+  settings = {
+    currency: $('#currency').value,
+    rates: { RWF: 1, USD: Number(usd), EUR: Number(eur) },
+    cap: Number(cap),
+    categories: categories,
+  };
+  saveData();
+  fillSettings();
+  renderAll();
+  announce('Settings saved.');
+});
+
