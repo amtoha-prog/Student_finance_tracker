@@ -13,10 +13,6 @@ const RULES ={
 };
 
 function collapseSpaces(text) {
-  return text.replace(/\s{2,}/g, '');
-}
-
-function collapseSpaces(text) {
   return text.replace(/\s{2,}/g, ' ');
 }
 
@@ -31,6 +27,7 @@ function validateDescription(value) {
 function validateAmount(value) {
   if (value === '') return 'Enter an amount.';
   if (!RULES.amount.test(value)) return 'Use numbers only, with up to 2 decimals (e.g. 1500 or 12.50).';
+  if (!RULES.notZero.test(value)) return 'The amount must be more than 0.';
   return '';
 }
 
@@ -56,6 +53,9 @@ function validateRecord(data) {
     amount: validateAmount(data.amount),
     category: validateCategory(data.category),
     date: validateDate(data.date),
+  };
+  for (const field in checks) {
+    if (checks[field] !== '') errors[field] = checks[field];
   }
   return errors;
 }
@@ -77,10 +77,20 @@ function validateImport(data) {
 
     if (typeof r.description !== 'string' || !RULES.description.test(r.description)) return where + ' has a bad description.';
     if (typeof r.amount !== 'number' || r.amount < 0) return where + ' has a bad amount.';
-    if (typeof r.category !== 'string' || !RULES.date.test(r.date)) return where + ' has a bad date.';
+    if (typeof r.category !== 'string' || !RULES.category.test(r.category)) return where + ' has a bad category.';
+    if (typeof r.date !== 'string' || !RULES.date.test(r.date)) return where + ' has a bad date.';
     if (typeof r.createdAt !== 'string' || typeof r.updatedAt !== 'string') return where + ' is missing timestamps.';
   }
   return '';
+}
+
+function compileRegex(pattern, ignoreCase) {
+  if (pattern.trim() === '') return { regex: null, error: '' };
+  try {
+    return { regex: new RegExp(pattern, ignoreCase ? 'i' : ''), error: ''};
+  } catch (err) {
+    return { regex: null, error: 'That pattern is not valid: ' + err.message };
+  }
 }
 
 function escapeHtml(text) {
