@@ -34,8 +34,17 @@
     check('Description: leading space is rejected', RULES.description.test(' Lunch'), false);
     check('Description: trailing space is rejected', RULES.description.test('Lunch '), false);
     check('Description: double spaces are collapsed', collapseSpaces('Lunch  at  cafe'), 'Lunch at cafe');
-    
 
-  
+
+    //---- Rule 2 and 3: amount -----
+    check('Amount: 12.50 is OK', validateAmount('12.50'), '');
+    check('Amount: 1500 is OK', validateAmount('1500'), '');
+    check('Amount: 3 decimals is rejected', RULES.amount.test('1.234'), false);
+    check('Amount: leading zero "007" is rejected', RULES.amount.test('007'), false);
+    check('Lookahead: 0.00 is rejected', RULES.notZero.test('0.00'), false);
+    check('Lookahead: 0.50 is OK', RULES.notZero.test('0.50'), true);
+
+
+  </script>
 </body>
 </html>
