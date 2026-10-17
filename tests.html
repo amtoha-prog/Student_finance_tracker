@@ -54,6 +54,11 @@
     check('Category: "Mobile Data" is OK', validateCategory('Mobile Data'), '');
     check('Category: "Top-up" is OK', validateCategory('Top-up'), '');
     check('Category: "Food2" is rejected', RULES.category.test('Food2'), false);
+
+    //---- Rule 6: back-refrence ----
+    check('Back-reference: finds "the the"', RULES.duplcateWord.test('Print the the report'), true);
+    check('Back-reference: "the then" is fine',RULES.duplcateWord.test('the then') !== '', false);
+    check('Description with "the the" is rejected', validateDescription('Print the the report') !== '', true);
    
 
   </script>
