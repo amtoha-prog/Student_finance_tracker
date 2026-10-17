@@ -64,7 +64,15 @@
     const goodForm = { description: 'Bus fare', amount: '500', category: 'Transport', date: '2026-10-14' };
     const badForm = { description: 'Bus', amount: '0', category: 'Bus2', date: '2026/10/14'};
     check('validateRecord: good form has 0 errors', Object.keys(validateRecord(badForm)).length, 0);
-    
+
+    //---- Search ----
+    check('Search: bad pattern "(" gives an error, not a crash, compileRegex('(', true').error !== '', true);
+    check('Search: empty box means "show all"', compileRegex('', true).regex, null);
+    check('Search: coffee|tea matches "Green tea"', compileRegex('coffee|tea', true).regex.test('Green tea'), true);
+    check('Search: case-sensitive ICED does not match "Iced"', compileRegex('ICED', false).regex.test('ICED'), false);
+    check('Higlight: adds a mark tag', highlight('Iced coffee', /coffee/i), 'Iced <mark>coffee</mark>');
+    check('Highlight: HTML is escaped', highlight('<b>tea</b>', /tea/), '&lt;b&gt;<mark>tea</mark>&lt;/b&gt;');
+
    
 
   </script>
