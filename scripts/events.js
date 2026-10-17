@@ -146,3 +146,33 @@ $('#settings-form').addEventListener('submit', (event) => {
   announce('Settings saved.');
 });
 
+// Import / Export JSON
+$('#export-btn').addEventListener('click', () => {
+  const file = new Blob([JSON.stringify(records, null, 2)], {type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(file);
+  link.download = 'minttrack-data.json';
+  link.click();
+  $('#data-msg').textContent = `Exported ${records.length} transactions.` ;
+});
+
+$('#import-file').addEventListener('change', async (event) => {
+  const file = event.target.files[0];
+  if(!file) return;
+  try {
+    const data = JSON.parse(await file.text());
+    const problem =validateImport(data);
+    if (problem) {
+      $('#data-msg').textContent = `Import stopped: ${problem} Nothing was changed.`;
+    } else {
+      records = data;
+      saveData();
+      renderAll();
+      $('#data-msg').textContent = `Import ${data.length} transactions.`;
+    }
+  } catch (error) {
+    $('#data-msg').textContent = 'Import stopped: this file is not valid JSON. Nothing was changed.';
+  }
+  event.target.value = '';
+});
+
