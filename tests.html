@@ -83,7 +83,7 @@
 
     //---- Show the results on the page ----
     const passed = results.filter((r) => r.pass).length;
-    document.getElementById('summary').textContent = passed + ' of ' + results.length + ' tests passed';]
+    document.getElementById('summary').textContent = passed + ' of ' + results.length + ' tests passed';
     document.getElementById('results').innerHTML = results.map((r) => {
       if (r.pass) return '<li class="pass">Pass: ' + escapeHtml(r.name) + '</li>';
       return '<li class="fail">Fail: ' + escapeHtml(r.name) + ' (expected ' + escapeHtml(JSON.stringify(r.expected)) + ', got ' + escapeHtml(JSON.stringify(r.actual)) + ')</li>';
