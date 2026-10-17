@@ -58,3 +58,21 @@ document.addEventListener('keydown', (event) => {
     $('#search').focus();
   }
 });
+
+// Edit and delete
+$('#records-body').addEventListener('click', (event) => {
+  const button = event.target.closest('button')
+  if (!button) return;
+  const id = button.dataset.action;
+  if (action === 'edit') { editingId = id; renderTable(); $('#records-body input').focus(); }
+  if (action === 'cancel') cancelEdit();
+  if (action === 'save') saveEdit(id);
+  if (action === 'delete') deleteRecord(id);
+});
+
+$('#records-body').addEventListener('keydown', (event) => {
+  if (!event.target.dataset.field) return;
+  if (event.key === 'Enter')saveEdit(editingId);
+  if (event.key === 'Escape')cancelEdit();
+});
+
