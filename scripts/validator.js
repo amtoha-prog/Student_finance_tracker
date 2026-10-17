@@ -98,7 +98,7 @@ function escapeHtml(text) {
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
-  .replaceAll(/"/g, '&quot;');
+  .replace(/"/g, '&quot;');
 }
 
 function highlight(text, regex) {
