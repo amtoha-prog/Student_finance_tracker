@@ -73,6 +73,17 @@
     check('Higlight: adds a mark tag', highlight('Iced coffee', /coffee/i), 'Iced <mark>coffee</mark>');
     check('Highlight: HTML is escaped', highlight('<b>tea</b>', /tea/), '&lt;b&gt;<mark>tea</mark>&lt;/b&gt;');
 
+    //---- JSON import check ----
+    const goodRecord = { id: 'rec_0001', description: 'Iced coffee', amount: 2000, category: 'Food',
+      date: '2026-10-14', createdAt: '2026-10-14T09:00:00Z', updatedAt: '2026-10-14T09:00:00Z'};
+    check('Import: a valid list accepted', validateImport([goodRecord]), '');
+    check('Import: an object instead of a list is rejected', validateImport({}) !== '', true);
+    check('Import: duplicate ids are rejected', validateImport([goodRecord, goodRecord]).includes('repeats the id'), true);  
+    check('Import: a text amount is rejected', validateImport([{ ...goodRecord, amount: '2000'}]).includes('bad amount'), true);
+
+
+    
+
    
 
   </script>
