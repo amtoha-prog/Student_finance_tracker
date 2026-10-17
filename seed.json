@@ -1,0 +1,110 @@
+[
+  {
+    "id": "rec_0001",
+    "description": "Lunch at cafeteria",
+    "amount": 2500,
+    "category": "Food",
+    "date": "2026-10-01",
+    "createdAt": "2026-10-01T09:11:00.000Z",
+    "updatedAt": "2026-10-01T09:11:00.000Z"
+  },
+  {
+    "id": "rec_0002",
+    "description": "Moto to Kimironko Market",
+    "amount": 1500,
+    "category": "Transport",
+    "date": "2026-10-02",
+    "createdAt": "2026-10-01T09:12:00.000Z",
+    "updatedAt": "2026-10-01T09:12:00.000Z"
+  },
+  {
+    "id": "rec_0003",
+    "description": "Data structures textbook",
+    "amount": 18000,
+    "category": "Books",
+    "date": "2026-10-03",
+    "createdAt": "2026-10-01T09:13:00.000Z",
+    "updatedAt": "2026-10-01T09:13:00.000Z"
+  },
+  {
+    "id": "rec_0004",
+    "description": "Semester activity fee",
+    "amount": 25000,
+    "category": "Fees",
+    "date": "2026-10-05",
+    "createdAt": "2026-10-01T09:14:00.000Z",
+    "updatedAt": "2026-10-01T09:14:00.000Z"
+  },
+  {
+    "id": "rec_0005",
+    "description": "Coffee with study group",
+    "amount": 3200.5,
+    "category": "Food",
+    "date": "2026-10-06",
+    "createdAt": "2026-10-01T09:15:00.000Z",
+    "updatedAt": "2026-10-01T09:15:00.000Z"
+  },
+  {
+    "id": "rec_0006",
+    "description": "Movie night with friends",
+    "amount": 6000,
+    "category": "Entertainment",
+    "date": "2026-10-08",
+    "createdAt": "2026-10-01T09:16:00.000Z",
+    "updatedAt":"2026-10-01T09:16:00.000Z"
+  },
+  {
+    "id": "rec_0007",
+    "description": "Juice and snacks",
+    "amount": 1800,
+    "category": "Food",
+    "date": "2026-10-09",
+    "createdAt": "2026-10-01T09:17:00.000Z",
+    "updatedAt": "2026-10-01T09:17:00.000Z"
+  },
+  {
+    "id": "rec_0008",
+    "description": "Buying a dress",
+    "amount": 25000,
+    "category": "Clothes",
+    "date":"2026-10-10",
+    "createdAt": "2026-10-01T09:18:00.000Z",
+    "updatedAt": "2026-10-01T09:18:00.000Z"
+  },
+  {
+    "id": "rec_0009",
+    "description": "Bus card top-up",
+    "amount": 700,
+    "category": "Transport",
+    "date": "2026-10-11",
+    "createdAt": "2026-10-01T09:19:00.000Z",
+    "updatedAt": "2026-10-01T09:19:00.000Z"
+  },
+  {
+    "id": "rec_0010",
+    "description": "Mobile data bundle",
+    "amount": 3000,
+    "category": "Mobile data",
+    "date": "2026-10-12",
+    "createdAt":"2026-10-01T09:20:00.000Z",
+    "updatedAt": "2026-10-01T09:20:00.000Z"
+  },
+  {
+    "id": "rec_0011",
+    "description": "Notebook and pens",
+    "amount": 3500.75,
+    "category": "Books",
+    "date": "2026-10-13",
+    "createdAt": "2026-10-01T09:21:00.000Z",
+    "updatedAt":"2026-10-01T09:21:00.000Z"
+  },
+  {
+    "id": "rec_0012",
+    "description": "Coffee",
+    "amount": 2500,
+    "category": "Food",
+    "date": "2026-10-14",
+    "createdAt": "2026-10-01T09:22:00.000Z",
+    "updatedAt": "2026-10-01T09:22:00.000Z"
+  }
+]
