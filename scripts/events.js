@@ -23,7 +23,7 @@ FIELDS.forEach((field) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault(); 
   const data = readForm();
-  const errors = validateReacord(data);
+  const errors = validateRecord(data);
   FIELDS.forEach((field) => showError(field, errors[field] || ''));
   if (Object.keys(errors).length > 0) {
     form.querySelector('[aria-invalid="true"]').focus();
