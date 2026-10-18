@@ -4,9 +4,9 @@ Everything is in your browser so you don't need an account.
 
 Built with plain **HTML, CSS and JavaScript**.
 
-- **Live site** https://github.com/amtoha-prog/Student_finance_tracker.git
-- **Demo video:** 
-- **Alissa Bonaventura Mtoha
+- **Live site:**  https://amtoha-prog.github.io/Student_finance_tracker/
+- **Demo video:** https://youtu.be/CWd3yYX_Ehg
+- **Alissa Bonaventura Mtoha**
 
 
 ## Features
@@ -25,12 +25,10 @@ Built with plain **HTML, CSS and JavaScript**.
 
 ## How to run it 
 
-The app must be open through a local server. Double clicking `index.html` will not load the sample date.
-
-1. **Online:** open the live site: 
+1. **Online:** open the live site: https://amtoha-prog.github.io/Student_finance_tracker/
 
 **0n your computer:**
-1. Download the code (download ZIP) and unzip it.
+1. Download the code (download ZIP) on github and unzip it.
 2. Open the folder in VS Code and run `index.html` with the **Live Server** extension. (It must run through a server so `seed.json` can load.)
 
 **To start fresh:** press F12, go to the Console, type `localStorage.clear()` and reload the page.
