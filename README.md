@@ -20,12 +20,12 @@ Built with plain **HTML, CSS and JavaScript**.
 - **Currencies** RWF (base), USD and EUR, with exchange rates you type in Settings.
 - **Saves automatically** in your browser (localStorage).
 - **Export and import** your data as a JSON file. Imported files are checked first.
-- ** Works on phone, tablet and computer.**
+- **Works on phone, tablet and computer.**
 
 
 ## How to run it 
 
-1. **Online:** open the live site: https://amtoha-prog.github.io/Student_finance_tracker/
+**Online:** open the live site: https://amtoha-prog.github.io/Student_finance_tracker/
 
 **0n your computer:**
 1. Download the code (download ZIP) on github and unzip it.
@@ -53,17 +53,17 @@ docs/spec.md           data model, wireframes, and accessibility plan
 
 1. **Description** - no spaces at the start or end: `^\S(?:.*\S)?$`
 2. **Amount** - a number with up to 2 decimals: `^(0|[1-9]\d*)(\.\d{1,2})?$`
-3. **Amount not zero** : `^(?!0+(?:[ -][A-Za-z]+)*$)`
+3. **Amount not zero** (advanced, back-refrence): `^(?!0+(?:[ -][A-Za-z]+)*$)`
 4. **Date** - YYYY-MM-DD: `^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$`
 5. **Category** - letters, spaces or hyphens: `^[A-Za-z]+(?:[ -][A-Za-z]+)*$`
-6. **Repeated word** : `\b(\w+)\s+\1\b`
+6. **Repeated word** (advanced, back-refrence): `\b(\w+)\s+\1\b`
 
 
 ## Search patterns to try
 
 - `coffee` - finds coffee expenses
 - `\.\d{2}\b` - finds amounts with cents
-- `\b(\w)\s+1\b` - finds a repeated word
+- `\b(\w)\s+\1\b` - finds a repeated word
 - `(` - shows the pattern is not valid error
 
 
@@ -72,7 +72,7 @@ docs/spec.md           data model, wireframes, and accessibility plan
 - **Tab / Shift+Tab** - move forward / back
 - **Enter** - press a button or submit a form
 - **/** - jump to the search box
-- ** Enter / Escape** while editing a row - save / cancel
+- **Enter / Escape** while editing a row - save / cancel
 - The first **Tab** shows the "Skip to main content" link
 
 
@@ -101,5 +101,5 @@ docs/spec.md           data model, wireframes, and accessibility plan
 
 ## Credits 
 
-Illustrations by Stroyset (storyset.com)
+Illustrations by Storyset (storyset.com)
 
